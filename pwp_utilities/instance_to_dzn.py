@@ -1,5 +1,9 @@
 import sys
 
+if len(sys.argv) != 3:
+    print('Usage: instance_to_dzn.py <input_file> <output_file>')
+    sys.exit(1)
+
 input_filename = sys.argv[1]
 output_filename = sys.argv[2]
 

@@ -1,0 +1,23 @@
+% Non-overlapping constraint
+constraint forall(i, j in 1..n where i < j) (
+     X[i] + DX[i] <= X[j]
+  \/ X[j] + DX[j] <= X[i]
+  \/ Y[i] + DY[i] <= Y[j]
+  \/ Y[j] + DY[j] <= Y[i]
+);
+
+% Function that, given an index for the row/column, returns the set of pieces of paper along that row/column
+function var set of 0..n: get_set(int: k, bool: along_x) = 
+if along_x then
+  array2set([B[k, j] | j in 1..w])
+else
+  array2set([B[i, k] | i in 1..h])
+endif;
+
+% Implied constraints
+constraint forall(i in 1..h) (
+  sum([DX[v] | v in get_set(i, true)]) <= w
+);
+constraint forall(j in 1..w) (
+  sum([DY[v] | v in get_set(j, false)]) <= h
+);

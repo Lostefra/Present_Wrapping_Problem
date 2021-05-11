@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import random
 from matplotlib.patches import Rectangle
 
+# Usage: python print_solution.py -f <filename>
 parser = argparse.ArgumentParser(description='Argument parser')
 parser.add_argument("-f", "--file_name", help="Filename", required = True, type=str)
 args = parser.parse_args()

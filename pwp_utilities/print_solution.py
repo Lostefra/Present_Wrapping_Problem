@@ -40,8 +40,10 @@ def main():
 		sq = Rectangle((pieces[i][2],pieces[i][3]),pieces[i][0],pieces[i][1],fill = True,color=color[0], alpha=.3 )
 		ax.add_patch(sq)
 	plt.plot()
-	plt.show()
-		
+	plt.xticks(ticks=range(0,width+1))
+	plt.yticks(ticks=range(0,height+1))
+	plt.grid(color='black')
+	plt.show()		
 	
 	file.close() 
 		

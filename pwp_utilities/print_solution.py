@@ -27,6 +27,7 @@ def main():
 	remaining_lines = [line.strip() for line in remaining_lines if line.strip()]
 	
 	pieces = []
+	colors = ['blue','yellow','red','darkorange','forestgreen','cornflowerblue','silver','tan','lime','dimgrey','aqua','olive','deeppink','violet','chocolate','skyblue','greenyellow','sandybrown','springgreen','orange','brown','darkred','purple','pink','indigo','slateblue','lightsteelblue','lightslategray','moccasin','burlywood']
 	
 	for i,line in enumerate(remaining_lines):
 		line = line.split()
@@ -36,8 +37,8 @@ def main():
 	fig = plt.figure(figsize=(5 + (width//8) ,5 + (height//8)))
 	ax = fig.gca(title = "Solution")
 	for i in range(number_of_pieces):
-		color = ["#"+''.join([random.choice('0123456789ABCDEF') for j in range(6)])]
-		sq = Rectangle((pieces[i][2],pieces[i][3]),pieces[i][0],pieces[i][1],fill = True,color=color[0], alpha=.3 )
+		color = colors[i]
+		sq = Rectangle((pieces[i][2],pieces[i][3]),pieces[i][0],pieces[i][1],fill = True,color=color, alpha=.3 )
 		ax.add_patch(sq)
 	plt.plot()
 	plt.xticks(ticks=range(0,width+1))

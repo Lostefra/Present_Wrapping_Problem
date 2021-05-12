@@ -16,7 +16,7 @@ constraint forall(i, j in 1..n where i < j) (
   \/ Y[j] + DY[j] <= Y[i]
 );
 
-% Boundaries consistency constraint (computationally relevant)
+% Boundaries consistency constraint
 constraint forall(i in 1..n) (
   X[i] + DX[i] <= w /\ Y[i] + DY[i] <= h
 );

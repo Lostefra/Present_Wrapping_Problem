@@ -31,7 +31,7 @@ constraint forall(j in 1..w) (
   among([B[i, j] | i in 1..h], 1..n) <= h
 );
 
-% Boundaries consistency constraint (computationally relevant)
+% Boundaries consistency constraint (computationally relevant) TEST WITH IN_SET_CHANNEL
 constraint forall(i in 1..n) (
   X[i] + DX[i] <= w /\ Y[i] + DY[i] <= h
 );

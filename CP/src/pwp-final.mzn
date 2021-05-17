@@ -31,7 +31,7 @@ constraint forall(j in 1..w) (
   among([B[i, j] | i in 1..h], 1..n) <= h
 );
 
-% Boundaries consistency constraint (computationally relevant) TEST WITH IN_SET_CHANNEL
+% Boundaries consistency constraint (computationally relevant)
 constraint forall(i in 1..n) (
   X[i] + DX[i] <= w /\ Y[i] + DY[i] <= h
 );
@@ -55,7 +55,6 @@ else
   int_search(X, dom_w_deg, indomain_random)
 endif;
 
-solve :: search_ann
-         satisfy;
+solve satisfy;
 
 output ["\(w) \(h)\n\(n)\n"] ++ ["\(DX[i]) \(DY[i])\t\(X[i]) \(Y[i])\n" | i in 1..n];

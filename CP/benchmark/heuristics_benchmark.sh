@@ -5,8 +5,8 @@ if [[ cores -eq "" ]]
 then
     cores=1
 fi
-echo "Usinf $cores cores"
-for n in 8 9 10 11 12; do
+echo "Using $cores cores"
+for n in 8 9 10 11 12 13; do
     echo -e "\tTest naive model with N=$n"
     minizinc --solver Gecode -a -p $cores --solver-statistics src/pwp-naive.mzn "in/${n}x${n}.dzn" | grep -E 'solutions|failures'
     echo -e "\tTest dual model with N=$n"

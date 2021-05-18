@@ -1,3 +1,6 @@
+include "diffn.mzn";
+include "cumulative.mzn";
+
 int: w;
 int: h;
 int: n;
@@ -9,18 +12,23 @@ array[1..n] of var 0..(w - min(DX)): X;
 array[1..n] of var 0..(h - min(DY)): Y;
 
 % Non-overlapping constraint
-constraint forall(i, j in 1..n where i < j) (
-     X[i] + DX[i] <= X[j]
-  \/ X[j] + DX[j] <= X[i]
-  \/ Y[i] + DY[i] <= Y[j]
-  \/ Y[j] + DY[j] <= Y[i]
-);
+constraint diffn(X, Y, DX, DY);
 
-% Boundaries consistency constraint
+% Boundaries consistency constraint (computationally relevant)
 constraint forall(i in 1..n) (
   X[i] + DX[i] <= w /\ Y[i] + DY[i] <= h
 );
 
+% Implied constraints
+constraint cumulative(X, DX, DY, h);
+constraint cumulative(Y, DY, DX, w);
+
+% Symmetry breaking
+constraint symmetry_breaking_constraint(
+  X[1] <= w div 2 /\ Y[1] <= h div 2  % force first piece to be placed in the bottom-left corner
+);
+
+% Impose ordering in pieces with the same size
 constraint forall(i, j in 1..n where i < j) (
   (DX[i] = DX[j] /\ DY[i] = DY[j]) -> (X[i] <= X[j] /\ Y[i] <= Y[j])
 );

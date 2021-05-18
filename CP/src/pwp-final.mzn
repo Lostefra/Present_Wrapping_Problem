@@ -1,7 +1,7 @@
 include "diffn.mzn";
 include "cumulative.mzn";
 
-int: mode = 5;
+int: mode;
 int: w;
 int: h;
 int: n;
@@ -42,6 +42,7 @@ else
   int_search(X, dom_w_deg, indomain_random)
 endif;
 
-solve satisfy;
+solve :: search_ann
+         satisfy;
 
 output ["\(w) \(h)\n\(n)\n"] ++ ["\(DX[i]) \(DY[i])\t\(X[i]) \(Y[i])\n" | i in 1..n];

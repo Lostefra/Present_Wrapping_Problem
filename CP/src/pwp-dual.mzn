@@ -1,3 +1,4 @@
+include "among.mzn";
 include "lex_lesseq.mzn";
 
 int: w;
@@ -30,20 +31,32 @@ constraint forall(i in 1..n) (
   X[i] + DX[i] <= w /\ Y[i] + DY[i] <= h
 );
 
-% Function that, given an index for the row/column, returns the set of pieces of paper along that row/column
-function var set of 0..n: get_set(int: k, bool: along_x) = 
-if along_x then
-  array2set([B[k, j] | j in 1..w])
-else
-  array2set([B[i, k] | i in 1..h])
-endif;
+% Implied constraints (V1)
+% ------------------------------------------------------------
+% Function that, given an index for the row/column, 
+% returns the set of pieces of paper along that row/column
+%function var set of 0..n: get_set(int: k, bool: along_x) = 
+%if along_x then
+%  array2set([B[k, j] | j in 1..w])
+%else
+%  array2set([B[i, k] | i in 1..h])
+%endif;
 
 % Implied constraints
+%constraint forall(i in 1..h) (
+%  sum([DX[v] | v in get_set(i, true) where v != 0]) <= w
+%);
+%constraint forall(j in 1..w) (
+%  sum([DY[v] | v in get_set(j, false) where v != 0]) <= h
+%);
+% ------------------------------------------------------------
+
+% Implied constraints (V2)
 constraint forall(i in 1..h) (
-  sum([DX[v] | v in get_set(i, true) where v != 0]) <= w
+  among([B[i, j] | j in 1..w], 1..n) <= w
 );
 constraint forall(j in 1..w) (
-  sum([DY[v] | v in get_set(j, false) where v != 0]) <= h
+  among([B[i, j] | i in 1..h], 1..n) <= h
 );
 
 % Symmetry breaking

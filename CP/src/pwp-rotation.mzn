@@ -1,3 +1,6 @@
+include "diffn.mzn";
+include "cumulative.mzn";
+
 int: w;
 int: h;
 int: n;
@@ -12,32 +15,50 @@ array[1..n] of var 0..(h - min_xy): Y;
 % Array of boolean decision variables to keep track of rotations
 array[1..n] of var bool: R;
 
+% Support arrays which store the actual size, taking into account rotation
+array[1..n] of var int: TRUE_DX = [if R[i] then DY[i] else DX[i] endif | i in 1..n];
+array[1..n] of var int: TRUE_DY = [if R[i] then DX[i] else DY[i] endif | i in 1..n];
+
 % Non-overlapping constraint
-constraint forall(i, j in 1..n where i < j) (
-     ((not R[i] /\ not R[j]) -> (    X[i] + DX[i] <= X[j]
-                                  \/ X[j] + DX[j] <= X[i]
-                                  \/ Y[i] + DY[i] <= Y[j]
-                                  \/ Y[j] + DY[j] <= Y[i]))
-  /\ ((not R[i] /\ R[j]) -> (        X[i] + DX[i] <= X[j]
-                                  \/ X[j] + DY[j] <= X[i]
-                                  \/ Y[i] + DY[i] <= Y[j]
-                                  \/ Y[j] + DX[j] <= Y[i]))
-  /\ ((R[i] /\ not R[j]) -> (        X[i] + DY[i] <= X[j]
-                                  \/ X[j] + DX[j] <= X[i]
-                                  \/ Y[i] + DX[i] <= Y[j]
-                                  \/ Y[j] + DY[j] <= Y[i]))
-  /\ ((R[i] /\ R[j]) -> (            X[i] + DY[i] <= X[j]
-                                  \/ X[j] + DY[j] <= X[i]
-                                  \/ Y[i] + DX[i] <= Y[j]
-                                  \/ Y[j] + DX[j] <= Y[i]))
-);
+%constraint forall(i, j in 1..n where i < j) (
+%     ((not R[i] /\ not R[j]) -> (    X[i] + DX[i] <= X[j]
+%                                  \/ X[j] + DX[j] <= X[i]
+%                                  \/ Y[i] + DY[i] <= Y[j]
+%                                  \/ Y[j] + DY[j] <= Y[i]))
+%  /\ ((not R[i] /\ R[j]) -> (        X[i] + DX[i] <= X[j]
+%                                  \/ X[j] + DY[j] <= X[i]
+%                                  \/ Y[i] + DY[i] <= Y[j]
+%                                  \/ Y[j] + DX[j] <= Y[i]))
+%  /\ ((R[i] /\ not R[j]) -> (        X[i] + DY[i] <= X[j]
+%                                  \/ X[j] + DX[j] <= X[i]
+%                                  \/ Y[i] + DX[i] <= Y[j]
+%                                  \/ Y[j] + DY[j] <= Y[i]))
+%  /\ ((R[i] /\ R[j]) -> (            X[i] + DY[i] <= X[j]
+%                                  \/ X[j] + DY[j] <= X[i]
+%                                  \/ Y[i] + DX[i] <= Y[j]
+%                                  \/ Y[j] + DX[j] <= Y[i]))
+%);
+
+% Non-overlapping constraint
+constraint diffn(X, Y, TRUE_DX, TRUE_DY);
 
 % Boundaries consistency constraint
+%constraint forall(i in 1..n) (
+%     ((not R[i]) -> X[i] + DX[i] <= w /\ Y[i] + DY[i] <= h)
+%  /\ (R[i] -> X[i] + DY[i] <= w /\ Y[i] + DX[i] <= h)
+%);
+
+% Boundaries consistency constraint (computationally relevant)
 constraint forall(i in 1..n) (
-     ((not R[i]) -> X[i] + DX[i] <= w /\ Y[i] + DY[i] <= h)
-  /\ (R[i] -> X[i] + DY[i] <= w /\ Y[i] + DX[i] <= h)
+  X[i] + TRUE_DX[i] <= w /\ Y[i] + TRUE_DY[i] <= h
 );
+
+constraint R[2] = true;
+
+% Implied constraints
+constraint cumulative(X, TRUE_DX, TRUE_DY, h);
+constraint cumulative(Y, TRUE_DY, TRUE_DX, w);
 
 solve satisfy;
 
-output ["\(w) \(h)\n\(n)\n"] ++ ["\(if R[i] then DY[i] else DX[i] endif) \(if R[i] then DX[i] else DY[i] endif)\t\(X[i]) \(Y[i])\n" | i in 1..n];
+output ["\(w) \(h)\n\(n)\n"] ++ ["\(TRUE_DX[i]) \(TRUE_DY[i])\t\(X[i]) \(Y[i])\n" | i in 1..n];

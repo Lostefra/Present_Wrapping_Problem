@@ -1,7 +1,7 @@
 include "diffn.mzn";
 include "cumulative.mzn";
 
-int: mode;
+int: mode = 5;
 int: w;
 int: h;
 int: n;

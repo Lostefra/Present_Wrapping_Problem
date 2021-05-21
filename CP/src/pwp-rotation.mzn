@@ -53,11 +53,11 @@ constraint forall(i in 1..n) (
   X[i] + TRUE_DX[i] <= w /\ Y[i] + TRUE_DY[i] <= h
 );
 
-constraint R[2] = true;
-
 % Implied constraints
 constraint cumulative(X, TRUE_DX, TRUE_DY, h);
 constraint cumulative(Y, TRUE_DY, TRUE_DX, w);
+
+constraint R[2] = true;
 
 solve satisfy;
 

@@ -1,7 +1,6 @@
 include "diffn.mzn";
 include "cumulative.mzn";
 
-int: mode = 3;
 int: w;
 int: h;
 int: n;
@@ -29,20 +28,34 @@ constraint symmetry_breaking_constraint(
   X[1] <= w div 2 /\ Y[1] <= h div 2  % force first piece to be placed in the bottom-left corner
 );
 
+% Parameters to control the search heuristic and restart strategy
+int: hs_mode = 3;
+int: r_mode = 2;
+
 ann: search_ann = 
-if mode == 1 then
+if hs_mode == 1 then
   int_search(X, input_order, indomain_min)
-elseif mode == 2 then
+elseif hs_mode == 2 then
   int_search(X, first_fail, indomain_min)
-elseif mode == 3 then
+elseif hs_mode == 3 then
   int_search(X, dom_w_deg, indomain_min)
-elseif mode == 4 then
+elseif hs_mode == 4 then
   int_search(X, input_order, indomain_random)
 else
   int_search(X, dom_w_deg, indomain_random)
 endif;
 
+ann: restart_ann =
+if r_mode == 1 then
+  restart_constant(100)
+elseif r_mode == 2 then
+  restart_geometric(1.5, 100)
+else
+  restart_luby(100)
+endif;
+
 solve :: search_ann
+      :: restart_ann
          satisfy;
 
 output ["\(w) \(h)\n\(n)\n"] ++ ["\(DX[i]) \(DY[i])\t\(X[i]) \(Y[i])\n" | i in 1..n];

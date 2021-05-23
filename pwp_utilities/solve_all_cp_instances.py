@@ -22,12 +22,13 @@ def main():
         command = f'minizinc --solver Gecode -p {cores} -t 300000 {model} {in_file}'
         instance_name = in_file.split('/')[-1]
         instance_name = instance_name[:len(instance_name) - 4]
-        out_file = os.path.join('out', instance_name + '-out.txt')
+        out_file = os.path.join(out_dir, instance_name + '-out.txt')
         with open(out_file, 'w') as f:
+            print(f'\t{out_file}:')
             start_time = time()
             subprocess.run(command.split(), stdout=f)
             elapsed_time = time() - start_time
-            print(f'{out_file}: {elapsed_time}')
+            print(f'{elapsed_time * 1000:.1f} ms')
 
 
 if __name__ == '__main__':

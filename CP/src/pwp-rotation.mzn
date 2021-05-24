@@ -16,8 +16,8 @@ array[1..n] of var 0..(h - min_xy): Y;
 array[1..n] of var bool: R;
 
 % Support arrays which store the actual size, taking into account rotation
-array[1..n] of var int: TRUE_DX = [if R[i] then DY[i] else DX[i] endif | i in 1..n];
-array[1..n] of var int: TRUE_DY = [if R[i] then DX[i] else DY[i] endif | i in 1..n];
+array[1..n] of var int: TRUE_DX = [if (DX[i] != DY[i] /\ R[i]) then DY[i] else DX[i] endif | i in 1..n];
+array[1..n] of var int: TRUE_DY = [if (DX[i] != DY[i] /\ R[i]) then DX[i] else DY[i] endif | i in 1..n];
 
 % Non-overlapping constraint
 constraint diffn(X, Y, TRUE_DX, TRUE_DY);

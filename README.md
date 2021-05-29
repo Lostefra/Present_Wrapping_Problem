@@ -21,16 +21,21 @@ The project is structured in 5 folders:
 ### CP
 The CP folder contains 4 subfolders:
 
-- `benchmark`, containing all the bash scripts to run the benchmarks and all the corresponding results in .txt;
+- `benchmark`, containing all the bash scripts to run the benchmarks and all the corresponding results in .txt (you can run them from the `CP` folder);
 - `in`, containing the instances in .dzn;
 - `out`, containing the solutions to the instances in .txt;
-- `src`, containing all the models developed:
+- `src`, containing all the models developed, mainly:
     - the best one in `pwp-final.mzn`;
     - the one for taking into account rotation is `pwp-rotation.mzn`;
     - the one for taking into account identical pieces is `pwp-identical.mzn`.
 
 ### SAT
-TODO
+- `benchmark`, containing all the bash scripts to run the benchmarks and all the corresponding results in .txt (you can run them from the `SAT` folder);
+- `out`, containing the solutions to the instances in .txt;
+- `src`, containing all the models developed:
+    - the best one in `pwp-final.py` (to know how to use it: `python pwp-final.py --help`);
+    - the one for taking into account rotation is `pwp-rotation.py` (to know how to use it: `python pwp-rotation.py --help`);
+    - the one for taking into account identical pieces is `pwp-identical.py` (to know how to use it: `python pwp-identical.py --help`).
 
 ### SMT
 TODO

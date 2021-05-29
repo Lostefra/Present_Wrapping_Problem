@@ -1,0 +1,132 @@
+	Test model with N=20
+Elapsed: 68.578 s
+The instance is SAT.
+Elapsed: 69.257 s
+The instance is SAT.
+Elapsed: 62.155 s
+The instance is SAT.
+Elapsed: 57.247 s
+The instance is SAT.
+Elapsed: 57.144 s
+The instance is SAT.
+	Test model + implied constraints with N=20
+Elapsed: 3.418 s
+The instance is SAT.
+Elapsed: 3.428 s
+The instance is SAT.
+Elapsed: 3.439 s
+The instance is SAT.
+Elapsed: 3.485 s
+The instance is SAT.
+Elapsed: 3.432 s
+The instance is SAT.
+	Test model with N=21
+Elapsed: 58.596 s
+The instance is SAT.
+Elapsed: 62.466 s
+The instance is SAT.
+Elapsed: 61.643 s
+The instance is SAT.
+Elapsed: 63.844 s
+The instance is SAT.
+Elapsed: 62.828 s
+The instance is SAT.
+	Test model + implied constraints with N=21
+Elapsed: 90.225 s
+The instance is SAT.
+Elapsed: 89.148 s
+The instance is SAT.
+Elapsed: 90.373 s
+The instance is SAT.
+Elapsed: 91.110 s
+The instance is SAT.
+Elapsed: 85.833 s
+The instance is SAT.
+	Test model with N=22
+Elapsed: 19.543 s
+The instance is SAT.
+Elapsed: 20.215 s
+The instance is SAT.
+Elapsed: 20.480 s
+The instance is SAT.
+Elapsed: 19.990 s
+The instance is SAT.
+Elapsed: 20.474 s
+The instance is SAT.
+	Test model + implied constraints with N=22
+Elapsed: 5.652 s
+The instance is SAT.
+Elapsed: 5.776 s
+The instance is SAT.
+Elapsed: 5.432 s
+The instance is SAT.
+Elapsed: 5.390 s
+The instance is SAT.
+Elapsed: 5.473 s
+The instance is SAT.
+	Test model with N=23
+Elapsed: 300.029 s
+The instance is UNSAT in the given time.
+Elapsed: 300.030 s
+The instance is UNSAT in the given time.
+Elapsed: 300.034 s
+The instance is UNSAT in the given time.
+Elapsed: 300.027 s
+The instance is UNSAT in the given time.
+Elapsed: 300.030 s
+The instance is UNSAT in the given time.
+	Test model + implied constraints with N=23
+Elapsed: 300.037 s
+The instance is UNSAT in the given time.
+Elapsed: 300.040 s
+The instance is UNSAT in the given time.
+Elapsed: 300.038 s
+The instance is UNSAT in the given time.
+Elapsed: 300.041 s
+The instance is UNSAT in the given time.
+Elapsed: 300.032 s
+The instance is UNSAT in the given time.
+	Test model with N=24
+Elapsed: 300.031 s
+The instance is UNSAT in the given time.
+Elapsed: 300.029 s
+The instance is UNSAT in the given time.
+Elapsed: 300.029 s
+The instance is UNSAT in the given time.
+Elapsed: 300.026 s
+The instance is UNSAT in the given time.
+Elapsed: 300.048 s
+The instance is UNSAT in the given time.
+	Test model + implied constraints with N=24
+Elapsed: 300.033 s
+The instance is UNSAT in the given time.
+Elapsed: 300.027 s
+The instance is UNSAT in the given time.
+Elapsed: 300.030 s
+The instance is UNSAT in the given time.
+Elapsed: 300.032 s
+The instance is UNSAT in the given time.
+Elapsed: 300.031 s
+The instance is UNSAT in the given time.
+	Test model with N=25
+Elapsed: 166.904 s
+The instance is SAT.
+Elapsed: 171.755 s
+The instance is SAT.
+Elapsed: 157.741 s
+The instance is SAT.
+Elapsed: 156.273 s
+The instance is SAT.
+Elapsed: 158.062 s
+The instance is SAT.
+	Test model + implied constraints with N=25
+Elapsed: 298.351 s
+The instance is SAT.
+Elapsed: 295.944 s
+The instance is SAT.
+Elapsed: 300.045 s
+The instance is UNSAT in the given time.
+Elapsed: 301.041 s
+The instance is UNSAT in the given time.
+Elapsed: 300.046 s
+The instance is UNSAT in the given time.

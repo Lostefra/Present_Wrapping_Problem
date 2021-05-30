@@ -24,6 +24,7 @@ def main():
     parser.add_argument("-i", "--in_path", help="Path to the file constaining the input instance", required=True, type=str)
     parser.add_argument("-o", "--out_path", help="Path to the directory that will contain the output solution", required=True, type=str)
     parser.add_argument("-t", "--timeout", help="Timeout in seconds (300 by default)", required=False, type=int)
+    parser.add_argument("-ic", "--implied", help="Don't use implied constraints (they're used by default)", action='store_false')
     args = parser.parse_args()
 
     # Read the input instance
@@ -101,37 +102,38 @@ def main():
         # R[p] -> at_least_one(package_clauses)
         solver.add(Or(Not(R[p]), at_least_one(package_clauses)))
 
-    # Define auxiliary variables for implied constraints
-    Sr = [[Bool(f'C_row_{i}_{j}') for j in range(w)] for i in range(w - 1)]
-    Sc = [[Bool(f'C_col_{i}_{j}') for j in range(h)] for i in range(h - 1)]
+    if args.implied:
+        # Define auxiliary variables for implied constraints
+        Sr = [[Bool(f'C_row_{i}_{j}') for j in range(w)] for i in range(w - 1)]
+        Sc = [[Bool(f'C_col_{i}_{j}') for j in range(h)] for i in range(h - 1)]
 
-    # Add implied constraint for rows
-    for r in tqdm(range(h), leave=False):
-        solver.add(Or(Not(at_least_one(B[r][0])), Sr[0][0]))  # SC1
-        for j in range(1, w):
-            solver.add(Not(Sr[0][j]))  # SC2
-        for i in range(1, w - 1):
-            solver.add(Or(Not(at_least_one(B[r][i])), Sr[i][0]))  # SC3
-            solver.add(Or(Not(Sr[i - 1][0]), Sr[i][0]))  # SC4
+        # Add implied constraint for rows
+        for r in tqdm(range(h), leave=False):
+            solver.add(Or(Not(at_least_one(B[r][0])), Sr[0][0]))  # SC1
             for j in range(1, w):
-                solver.add(Or(Not(at_least_one(B[r][i])), Not(Sr[i - 1][j - 1]), Sr[i][j]))  # SC5
-                solver.add(Or(Not(Sr[i - 1][j]), Sr[i][j]))  # SC6
-            solver.add(Or(Not(at_least_one(B[r][i])), Not(Sr[i - 1][w - 1])))  # SC7
-        solver.add(Or(Not(at_least_one(B[r][w - 1])), Not(Sr[w - 2][w - 1])))  # SC8
+                solver.add(Not(Sr[0][j]))  # SC2
+            for i in range(1, w - 1):
+                solver.add(Or(Not(at_least_one(B[r][i])), Sr[i][0]))  # SC3
+                solver.add(Or(Not(Sr[i - 1][0]), Sr[i][0]))  # SC4
+                for j in range(1, w):
+                    solver.add(Or(Not(at_least_one(B[r][i])), Not(Sr[i - 1][j - 1]), Sr[i][j]))  # SC5
+                    solver.add(Or(Not(Sr[i - 1][j]), Sr[i][j]))  # SC6
+                solver.add(Or(Not(at_least_one(B[r][i])), Not(Sr[i - 1][w - 1])))  # SC7
+            solver.add(Or(Not(at_least_one(B[r][w - 1])), Not(Sr[w - 2][w - 1])))  # SC8
 
-    # Add implied constraint for columns
-    for c in tqdm(range(w), leave=False):
-        solver.add(Or(Not(at_least_one(B[0][c])), Sc[0][0]))  # SC1
-        for j in range(1, h):
-            solver.add(Not(Sc[0][j]))  # SC2
-        for i in range(1, h - 1):
-            solver.add(Or(Not(at_least_one(B[i][c])), Sc[i][0]))  # SC3
-            solver.add(Or(Not(Sr[i - 1][0]), Sc[i][0]))  # SC4
+        # Add implied constraint for columns
+        for c in tqdm(range(w), leave=False):
+            solver.add(Or(Not(at_least_one(B[0][c])), Sc[0][0]))  # SC1
             for j in range(1, h):
-                solver.add(Or(Not(at_least_one(B[i][c])), Not(Sc[i - 1][j - 1]), Sc[i][j]))  # SC5
-                solver.add(Or(Not(Sc[i - 1][j]), Sc[i][j]))  # SC6
-            solver.add(Or(Not(at_least_one(B[i][c])), Not(Sc[i - 1][h - 1])))  # SC7
-        solver.add(Or(Not(at_least_one(B[h - 1][c])), Not(Sc[h - 2][h - 1])))  # SC8
+                solver.add(Not(Sc[0][j]))  # SC2
+            for i in range(1, h - 1):
+                solver.add(Or(Not(at_least_one(B[i][c])), Sc[i][0]))  # SC3
+                solver.add(Or(Not(Sr[i - 1][0]), Sc[i][0]))  # SC4
+                for j in range(1, h):
+                    solver.add(Or(Not(at_least_one(B[i][c])), Not(Sc[i - 1][j - 1]), Sc[i][j]))  # SC5
+                    solver.add(Or(Not(Sc[i - 1][j]), Sc[i][j]))  # SC6
+                solver.add(Or(Not(at_least_one(B[i][c])), Not(Sc[i - 1][h - 1])))  # SC7
+            solver.add(Or(Not(at_least_one(B[h - 1][c])), Not(Sc[h - 2][h - 1])))  # SC8
 
     # Set timeout for solver (in msec)
     timeout = args.timeout * 1000 if args.timeout is not None else 300000

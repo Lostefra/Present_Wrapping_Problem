@@ -157,7 +157,7 @@ def main():
         for p in range(n):
             y_ids, x_ids = solution[:, :, p].nonzero()
             x = np.min(x_ids)
-            y = h-1-np.max(y_ids)
+            y = h - 1 - np.max(y_ids)
             xy[p] = [x, y]
 
         # Write solution to file
@@ -168,7 +168,10 @@ def main():
             f_out.write(f'{w} {h}\n')
             f_out.write(f'{n}\n')
             for i in range(n):
-                f_out.write(f'{DX[i]} {DY[i]}\t{xy[i][0]} {xy[i][1]}\n')
+                if is_true(model[R[i]]):
+                    f_out.write('{} {}\t{} {}\n'.format(DY[i], DX[i], xy[i][0], xy[i][1]))
+                else:
+                    f_out.write('{} {}\t{} {}\n'.format(DX[i], DY[i], xy[i][0], xy[i][1]))
     else:
         print('The instance is UNSAT in the given time.')
 

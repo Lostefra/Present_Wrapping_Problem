@@ -43,7 +43,7 @@ def main():
         DY = []
 
         for i in range(int(n)):
-            split = lines[i+2].split(' ')
+            split = lines[i + 2].split(' ')
             DX.append(int(split[0]))
             DY.append(int(split[1]))
 

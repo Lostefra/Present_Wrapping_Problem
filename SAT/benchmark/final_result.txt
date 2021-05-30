@@ -1,0 +1,99 @@
+	Test model with N=8
+Elapsed: 0.018 s
+The instance is SAT.
+	Test model with N=9
+Elapsed: 0.018 s
+The instance is SAT.
+	Test model with N=10
+Elapsed: 0.030 s
+The instance is SAT.
+	Test model with N=11
+Elapsed: 0.073 s
+The instance is SAT.
+	Test model with N=12
+Elapsed: 0.091 s
+The instance is SAT.
+	Test model with N=13
+Elapsed: 0.190 s
+The instance is SAT.
+	Test model with N=14
+Elapsed: 1.190 s
+The instance is SAT.
+	Test model with N=15
+Elapsed: 0.238 s
+The instance is SAT.
+	Test model with N=16
+Elapsed: 0.583 s
+The instance is SAT.
+	Test model with N=17
+Elapsed: 0.841 s
+The instance is SAT.
+	Test model with N=18
+Elapsed: 627.358 s
+The instance is SAT.
+	Test model with N=19
+Elapsed: 206.141 s
+The instance is SAT.
+	Test model with N=20
+Elapsed: 4.366 s
+The instance is SAT.
+	Test model with N=21
+Elapsed: 91.626 s
+The instance is SAT.
+	Test model with N=22
+Elapsed: 5.362 s
+The instance is SAT.
+	Test model with N=23
+Elapsed: 1658.577 s
+The instance is SAT.
+	Test model with N=24
+Elapsed: 1196.432 s
+The instance is SAT.
+	Test model with N=25
+Elapsed: 298.351 s
+The instance is SAT.
+	Test model with N=26
+Elapsed: 3600.060 s
+The instance is UNSAT in the given time.
+	Test model with N=27
+Elapsed: 666.673 s
+The instance is SAT.
+	Test model with N=28
+Elapsed: 2171.131 s
+The instance is SAT.
+	Test model with N=29
+Elapsed: 3600.083 s
+The instance is UNSAT in the given time.
+	Test model with N=30
+Elapsed: 3600.083 s
+The instance is UNSAT in the given time.
+	Test model with N=31
+Elapsed: 539.231 s
+The instance is SAT.
+	Test model with N=32
+Elapsed: 3600.118 s
+The instance is UNSAT in the given time.
+	Test model with N=33
+Elapsed: 3600.107 s
+The instance is UNSAT in the given time.
+	Test model with N=34
+Elapsed: 3600.090 s
+The instance is UNSAT in the given time.
+	Test model with N=35
+Elapsed: 3600.117 s
+The instance is UNSAT in the given time.
+	Test model with N=36
+Elapsed: 3600.120 s
+The instance is UNSAT in the given time.
+	Test model with N=37
+Elapsed: 3600.164 s
+The instance is UNSAT in the given time.
+	Test model with N=38
+Elapsed: 208.257 s
+The instance is SAT.
+	Test model with N=39
+Elapsed: 3600.225 s
+The instance is UNSAT in the given time.
+	Test model with N=40
+Elapsed: 3600.105 s
+The instance is UNSAT in the given time.

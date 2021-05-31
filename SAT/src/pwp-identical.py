@@ -19,6 +19,13 @@ def at_most_one(bool_vars: Sequence):
     return [Not(And(pair[0], pair[1])) for pair in combinations(bool_vars, 2)]
 
 
+# Function for validity
+def is_valid(i1, j1, i2, j2, dx, dy):
+    right = (j2 >= j1 + dx) and (i2 <= i1)
+    up = (i2 <= i1 - dy) and (j2 >=j1)
+    return right or up
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--in_path", help="Path to the file constaining the input instance", required=True, type=str)
@@ -97,7 +104,7 @@ def main():
                 # Filter valid p2 clauses
                 for (i1, j1), patch_p1 in package_clauses_p1.items():
                     # Condition for validity: i2 <= i1 and j2 >= j1
-                    valid_patches_p2 = [patch_p2 for (i2, j2), patch_p2 in package_clauses_p2.items() if (i2 <= i1 and j2 >= j1)]
+                    valid_patches_p2 = [patch_p2 for (i2, j2), patch_p2 in package_clauses_p2.items() if is_valid(i1, j1, i2, j2, dx, dy)]
                     
                     package_clauses_joint.append(And(patch_p1, at_least_one(valid_patches_p2)))
                     
@@ -152,6 +159,8 @@ def main():
                     solver.add(Or(Not(Sc[i - 1][j]), Sc[i][j]))  # SC6
                 solver.add(Or(Not(at_least_one(B[i][c])), Not(Sc[i - 1][h - 1])))  # SC7
             solver.add(Or(Not(at_least_one(B[h - 1][c])), Not(Sc[h - 2][h - 1])))  # SC8
+    else:
+        print('Implied constraints disabled.')
 
     # Set timeout for solver (in msec)
     timeout = args.timeout * 1000 if args.timeout is not None else 300000

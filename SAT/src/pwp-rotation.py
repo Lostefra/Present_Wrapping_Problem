@@ -134,6 +134,8 @@ def main():
                     solver.add(Or(Not(Sc[i - 1][j]), Sc[i][j]))  # SC6
                 solver.add(Or(Not(at_least_one(B[i][c])), Not(Sc[i - 1][h - 1])))  # SC7
             solver.add(Or(Not(at_least_one(B[h - 1][c])), Not(Sc[h - 2][h - 1])))  # SC8
+    else:
+        print('Implied constraints disabled.')
 
     # Set timeout for solver (in msec)
     timeout = args.timeout * 1000 if args.timeout is not None else 300000

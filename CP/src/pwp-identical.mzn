@@ -28,9 +28,10 @@ constraint symmetry_breaking_constraint(
   X[1] <= w div 2 /\ Y[1] <= h div 2  % force first piece to be placed in the bottom-left corner
 );
 
-% Impose ordering in pieces with the same size
+% Impose ordering in pieces with the same size X[i] <= X[j] /\ Y[i] <= Y[j]
 constraint forall(i, j in 1..n where i < j) (
-  (DX[i] = DX[j] /\ DY[i] = DY[j]) -> (X[i] <= X[j] /\ Y[i] <= Y[j])
+  (DX[i] = DX[j] /\ DY[i] = DY[j]) ->    (X[j] >= X[i] + DX[i] /\ Y[j] >= Y[i]) 
+                                      \/ (Y[j] >= Y[i] + DY[i] /\ X[j] >= X[i])
 );
 
 solve satisfy;

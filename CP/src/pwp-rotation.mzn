@@ -31,8 +31,6 @@ constraint forall(i in 1..n) (
 constraint cumulative(X, TRUE_DX, TRUE_DY, h);
 constraint cumulative(Y, TRUE_DY, TRUE_DX, w);
 
-constraint R[2] = true;
-
 solve satisfy;
 
 output ["\(w) \(h)\n\(n)\n"] ++ ["\(TRUE_DX[i]) \(TRUE_DY[i])\t\(X[i]) \(Y[i])\n" | i in 1..n];

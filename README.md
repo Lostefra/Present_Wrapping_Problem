@@ -34,7 +34,7 @@ The CP folder contains 4 subfolders:
         - the dual model is `pwp-dual.mzn`.
 
 ### SAT
-The SAT folder contains 4 subfolders:
+The SAT folder contains 3 subfolders:
 
 - `benchmark`, containing all the bash scripts to run the benchmarks and all the corresponding results in .txt (you must run them from the `SAT` folder);
 - `out`, containing the solutions to the instances in .txt;
@@ -49,7 +49,7 @@ The SAT folder contains 4 subfolders:
         - the one for taking into account identical pieces is `pwp-identical.ipynb`.
 
 ### SMT
-The SMT folder contains 4 subfolders:
+The SMT folder contains 3 subfolders:
 
 - `benchmark`, containing all the bash scripts to run the benchmarks and all the corresponding results in .txt (you must run them from the `SMT` folder);
 - `out`, containing the solutions to the instances in .txt;

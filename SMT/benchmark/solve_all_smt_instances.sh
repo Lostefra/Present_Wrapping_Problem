@@ -1,0 +1,6 @@
+#!/bin/bash
+
+for n in $(seq 8 40); do
+    echo -e "\tTest model with N=$n"
+    python3 src/pwp-final.py -i "../Instances/${n}x${n}.txt" -o out/ -t 3600 -ic | grep -E 'Elapsed|instance'
+done

@@ -1,0 +1,132 @@
+	Test model with N=20
+Elapsed: 0.191 s
+The instance is SAT.
+Elapsed: 0.188 s
+The instance is SAT.
+Elapsed: 0.221 s
+The instance is SAT.
+Elapsed: 0.196 s
+The instance is SAT.
+Elapsed: 0.201 s
+The instance is SAT.
+	Test model + implied constraints with N=20
+Elapsed: 0.857 s
+The instance is SAT.
+Elapsed: 0.905 s
+The instance is SAT.
+Elapsed: 0.939 s
+The instance is SAT.
+Elapsed: 0.858 s
+The instance is SAT.
+Elapsed: 0.810 s
+The instance is SAT.
+	Test model with N=21
+Elapsed: 0.145 s
+The instance is SAT.
+Elapsed: 0.130 s
+The instance is SAT.
+Elapsed: 0.122 s
+The instance is SAT.
+Elapsed: 0.126 s
+The instance is SAT.
+Elapsed: 0.124 s
+The instance is SAT.
+	Test model + implied constraints with N=21
+Elapsed: 0.695 s
+The instance is SAT.
+Elapsed: 0.753 s
+The instance is SAT.
+Elapsed: 0.691 s
+The instance is SAT.
+Elapsed: 0.657 s
+The instance is SAT.
+Elapsed: 0.765 s
+The instance is SAT.
+	Test model with N=22
+Elapsed: 0.414 s
+The instance is SAT.
+Elapsed: 0.373 s
+The instance is SAT.
+Elapsed: 0.359 s
+The instance is SAT.
+Elapsed: 0.366 s
+The instance is SAT.
+Elapsed: 0.376 s
+The instance is SAT.
+	Test model + implied constraints with N=22
+Elapsed: 2.002 s
+The instance is SAT.
+Elapsed: 1.842 s
+The instance is SAT.
+Elapsed: 1.873 s
+The instance is SAT.
+Elapsed: 1.830 s
+The instance is SAT.
+Elapsed: 1.776 s
+The instance is SAT.
+	Test model with N=23
+Elapsed: 10.699 s
+The instance is SAT.
+Elapsed: 10.713 s
+The instance is SAT.
+Elapsed: 10.705 s
+The instance is SAT.
+Elapsed: 10.698 s
+The instance is SAT.
+Elapsed: 10.715 s
+The instance is SAT.
+	Test model + implied constraints with N=23
+Elapsed: 144.741 s
+The instance is SAT.
+Elapsed: 145.733 s
+The instance is SAT.
+Elapsed: 145.963 s
+The instance is SAT.
+Elapsed: 145.130 s
+The instance is SAT.
+Elapsed: 144.297 s
+The instance is SAT.
+	Test model with N=24
+Elapsed: 4.418 s
+The instance is SAT.
+Elapsed: 4.394 s
+The instance is SAT.
+Elapsed: 4.192 s
+The instance is SAT.
+Elapsed: 4.187 s
+The instance is SAT.
+Elapsed: 4.342 s
+The instance is SAT.
+	Test model + implied constraints with N=24
+Elapsed: 12.734 s
+The instance is SAT.
+Elapsed: 12.798 s
+The instance is SAT.
+Elapsed: 12.772 s
+The instance is SAT.
+Elapsed: 12.751 s
+The instance is SAT.
+Elapsed: 12.739 s
+The instance is SAT.
+	Test model with N=25
+Elapsed: 13.939 s
+The instance is SAT.
+Elapsed: 13.824 s
+The instance is SAT.
+Elapsed: 13.925 s
+The instance is SAT.
+Elapsed: 13.788 s
+The instance is SAT.
+Elapsed: 13.796 s
+The instance is SAT.
+	Test model + implied constraints with N=25
+Elapsed: 1.697 s
+The instance is SAT.
+Elapsed: 1.725 s
+The instance is SAT.
+Elapsed: 1.707 s
+The instance is SAT.
+Elapsed: 1.685 s
+The instance is SAT.
+Elapsed: 1.708 s
+The instance is SAT.

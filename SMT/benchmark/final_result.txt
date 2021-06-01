@@ -1,0 +1,99 @@
+	Test model with N=8
+Elapsed: 0.008 s
+The instance is SAT.
+	Test model with N=9
+Elapsed: 0.012 s
+The instance is SAT.
+	Test model with N=10
+Elapsed: 0.011 s
+The instance is SAT.
+	Test model with N=11
+Elapsed: 0.012 s
+The instance is SAT.
+	Test model with N=12
+Elapsed: 0.029 s
+The instance is SAT.
+	Test model with N=13
+Elapsed: 0.028 s
+The instance is SAT.
+	Test model with N=14
+Elapsed: 0.028 s
+The instance is SAT.
+	Test model with N=15
+Elapsed: 0.017 s
+The instance is SAT.
+	Test model with N=16
+Elapsed: 0.045 s
+The instance is SAT.
+	Test model with N=17
+Elapsed: 0.041 s
+The instance is SAT.
+	Test model with N=18
+Elapsed: 0.951 s
+The instance is SAT.
+	Test model with N=19
+Elapsed: 0.352 s
+The instance is SAT.
+	Test model with N=20
+Elapsed: 0.290 s
+The instance is SAT.
+	Test model with N=21
+Elapsed: 0.173 s
+The instance is SAT.
+	Test model with N=22
+Elapsed: 0.490 s
+The instance is SAT.
+	Test model with N=23
+Elapsed: 11.418 s
+The instance is SAT.
+	Test model with N=24
+Elapsed: 6.993 s
+The instance is SAT.
+	Test model with N=25
+Elapsed: 18.287 s
+The instance is SAT.
+	Test model with N=26
+Elapsed: 26.993 s
+The instance is SAT.
+	Test model with N=27
+Elapsed: 32.519 s
+The instance is SAT.
+	Test model with N=28
+Elapsed: 26.420 s
+The instance is SAT.
+	Test model with N=29
+Elapsed: 25.148 s
+The instance is SAT.
+	Test model with N=30
+Elapsed: 16.813 s
+The instance is SAT.
+	Test model with N=31
+Elapsed: 1.079 s
+The instance is SAT.
+	Test model with N=32
+Elapsed: 33.415 s
+The instance is SAT.
+	Test model with N=33
+Elapsed: 25.796 s
+The instance is SAT.
+	Test model with N=34
+Elapsed: 26.878 s
+The instance is SAT.
+	Test model with N=35
+Elapsed: 20.579 s
+The instance is SAT.
+	Test model with N=36
+Elapsed: 13.392 s
+The instance is SAT.
+	Test model with N=37
+Elapsed: 112.780 s
+The instance is SAT.
+	Test model with N=38
+Elapsed: 0.955 s
+The instance is SAT.
+	Test model with N=39
+Elapsed: 2064.163 s
+The instance is SAT.
+	Test model with N=40
+Elapsed: 0.801 s
+The instance is SAT.
